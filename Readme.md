@@ -1,5 +1,5 @@
 # Personal Portfolio 🔥
-> website link
+> https://helloyug.github.io/
 
 :star: Star me on GitHub — it helps!
 
@@ -69,8 +69,3 @@
 #### Step 3
 
 - 🔃 Create a new pull request.
-
-## License
-[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
-
-- **[MIT license](http://opensource.org/licenses/mit-license.php)**
