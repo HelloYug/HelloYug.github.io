@@ -1199,10 +1199,14 @@ section .container {
 }
 
 .newalpha .newalpha-wrap img {
-  width: 100%;
-  height: 180px; /* Different image height than portfolio */
+  /* width: 100%; */
+  height: 100%; /* Different image height than portfolio */
   object-fit: cover;
   background: #fff;
+}
+
+.newalpha .newalpha-links a i {
+  font-size: 38px;
 }
 
 .newalpha #newalpha-flters {
