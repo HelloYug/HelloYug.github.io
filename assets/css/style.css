@@ -189,21 +189,28 @@ h1, h2, h3, h4, h5, h6 {
 /* Mobile Navigation */
 .mobile-nav-toggle {
   position: fixed;
-  right: 15px;
-  top: 15px;
+  right: 18px;
+  top: 16px;
   z-index: 9998;
   border: 0;
-  background: none;
-  font-size: 24px;
+  /* background: none; */
+  font-size: 22px;
   transition: all 0.4s;
   outline: none !important;
   line-height: 1;
   cursor: pointer;
   text-align: right;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid #12d640;
+  border-radius: 8px;
+  padding: 8px;
+  box-shadow: 0 0 10px rgba(18, 214, 64, 0.6); /* green glow */
 }
 
 .mobile-nav-toggle i {
-  color: #fff;
+  /* color: #fff; */
+  font-size: 28px;  /* or 32px */
+  color: #12d640;   /* bright green for visibility */
 }
 
 .mobile-nav {
@@ -299,7 +306,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 768px) {
   #header.header-top {
-    height: 60px;
+    height: 70px;
   }
   #header.header-top h1 {
     font-size: 26px;
