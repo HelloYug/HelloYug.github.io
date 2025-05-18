@@ -138,6 +138,12 @@ h1, h2, h3, h4, h5, h6 {
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
+.typing {
+  font-family: "Courier New", Courier, monospace, bold;
+  font-weight: bold;
+}
+/* --------------------------------------------------------------*/
+
 /* Desktop Navigation */
 .nav-menu {
   margin-top: 35px;
@@ -158,9 +164,9 @@ h1, h2, h3, h4, h5, h6 {
   display: block;
   position: relative;
   color: #fff;
-  font-size: 19px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
+  font-size: 20px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 545;
 }
 
 .nav-menu a:before {
@@ -241,8 +247,11 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   color: #fff;
   padding: 10px 20px;
+  font-size: 26px;
   font-weight: 500;
   outline: none;
+  font-family: cursive;
+  text-align-last: center;
 }
 
 .mobile-nav a:hover, .mobile-nav .active > a, .mobile-nav li:hover > a {
@@ -851,9 +860,14 @@ section .container {
 }
 
 .portfolio .portfolio-wrap .portfolio-info h4 {
-  font-size: 20px;
+  font-size: 18px;
   color: #fff;
   font-weight: 600;
+  white-space: normal;         /* Allow wrapping */
+  word-break: break-word;      /* Break long words if needed */
+  text-align: center;          /* Optional: center the text */
+  padding: 0 25px;             /* Optional: avoid edge overflow */
+  margin-top: 10px;
 }
 
 .portfolio .portfolio-wrap .portfolio-info p {
