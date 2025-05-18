@@ -139,7 +139,7 @@
       <h2 style="color:#fff">I'm <span class="typing" style="color:#12D640"></span></h2>
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="#header"> <span>Home</span></a></li>
+          <li class="active"><a href="index.html"> <span>Home</span></a></li>
           <li><a href="#about"><span>About</span></a></li>
           <li><a href="#education"> <span>Education</span></a></li>
           <li><a href="#experience"> <span>Experience</span></a></li>
@@ -919,12 +919,10 @@
             <i class="bx bx-share-alt"></i>
             <h3>Social Profiles</h3>
             <div class="social-links">
-              <a href="https://www.linkedin.com/in/yugagarwal704" target="_blank" class="linkedin"><i
-                  class="bx bxl-linkedin"></i></a>
+              <a href="https://www.linkedin.com/in/yugagarwal704" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
               <a href="https://www.github.com/HelloYug" target="_blank" class="github"><i class="bx bxl-github"></i></a>
               <a href="mailto:yugagarwal704@gmail.com" target="_blank" class="google"><i class="bx bxl-google"></i></a>
-              <a href="https://www.instagram.com/yug.05/" target="_blank" class="instagram"><i
-                  class="bx bxl-instagram"></i></a>
+              <!-- <a href="https://www.instagram.com/yug.05/" target="_blank" class="instagram"><i class="bx bxl-instagram"></i></a> -->
               <!-- <a href="#" target="_blank" class="twiiter-x"><i class="bx bxl-twitter"></i></a> -->
             </div>
           </div>
@@ -946,8 +944,119 @@
         </div>
       </div>
       <!-- <div id="sfczmlqxr5caww28rswrt8849ghbekgnh3j" ></div><script type="text/javascript" src="https://counter1.stat.ovh/private/counter.js?c=zmlqxr5caww28rswrt8849ghbekgnh3j&down=async" async></script><noscript><a href="https://www.freecounterstat.com" title="free web counter"><img src="https://counter1.stat.ovh/private/freecounterstat.php?c=zmlqxr5caww28rswrt8849ghbekgnh3j" border="0" title="free web counter" alt="free web counter" style="visibility: none;"></a></noscript> -->
-    </div>
-  </section>
+      
+      <div class="section-title">
+        <br>
+        <h2>Message me</h2>
+      </div>
+
+<form 
+  action="https://formspree.io/f/mwpoydal" 
+  method="POST" 
+  novalidate
+  style="
+    max-width:600px; 
+    margin:20px auto; 
+    padding: 30px; 
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 8px; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    display:flex; 
+    flex-direction: column; 
+    gap: 1rem; 
+    font-family: Arial, sans-serif; 
+    color: #fff;
+  "
+>
+  <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+    <input 
+      type="text" 
+      name="name" 
+      placeholder="Your Name" 
+      required 
+      style="flex:1 1 45%; min-width: 150px; padding: 15px; border-radius: 4px; border: none; background: rgba(255,255,255,0.08); color: #fff; box-sizing: border-box;"
+    />
+    <input 
+      type="email" 
+      name="email" 
+      placeholder="Your Email" 
+      required 
+      style="flex:1 1 45%; min-width: 150px; padding: 15px; border-radius: 4px; border: none; background: rgba(255,255,255,0.08); color: #fff; box-sizing: border-box;"
+    />
+  </div>
+
+  <input 
+    type="text" 
+    name="subject" 
+    placeholder="Subject" 
+    required 
+    style="padding: 15px; border-radius: 4px; border: none; background: rgba(255,255,255,0.08); color: #fff; box-sizing: border-box; width: 100%;"
+  />
+
+  <textarea 
+    name="message" 
+    rows="4" 
+    placeholder="Your Message" 
+    required 
+    style="padding: 15px; border-radius: 4px; border: none; background: rgba(255,255,255,0.08); color: #fff; box-sizing: border-box; width: 100%; resize: vertical;"
+  ></textarea>
+
+  <button 
+    type="submit" 
+    style="width: 100%; padding: 12px 0; background: #1c7d32; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-size: 1rem; transition: background-color 0.3s ease;"
+    onmouseover="this.style.background='#15bb62';"
+    onmouseout="this.style.background='#1c7d32';"
+  >
+    Send Message
+  </button>
+</form>
+
+</section>
+
+
+
+<script>
+  const form = document.querySelector('.php-email-form');
+  const loading = form.querySelector('.loading');
+  const errorMessage = form.querySelector('.error-message');
+  const sentMessage = form.querySelector('.sent-message');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    loading.style.display = 'block';
+    errorMessage.style.display = 'none';
+    sentMessage.style.display = 'none';
+
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    }).then(response => {
+      loading.style.display = 'none';
+      if (response.ok) {
+        sentMessage.style.display = 'block';
+        form.reset();
+      } else {
+        response.json().then(data => {
+          errorMessage.textContent = data.error || 'Oops! There was a problem submitting your form';
+          errorMessage.style.display = 'block';
+        });
+      }
+    }).catch(() => {
+      loading.style.display = 'none';
+      errorMessage.textContent = 'Oops! There was a problem submitting your form';
+      errorMessage.style.display = 'block';
+    });
+  });
+</script>
+</div>
+  
+</section>
 
   <!-- End Contact Section -->
 
