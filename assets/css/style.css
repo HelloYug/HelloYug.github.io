@@ -1229,7 +1229,7 @@ section .container {
 }
 
 .newalpha .newalpha-links a i {
-  font-size: 38px;
+  font-size: 40px;
 }
 
 .newalpha #newalpha-flters {
@@ -1338,7 +1338,7 @@ section .container {
 }
 
 .newalpha .newalpha-wrap .newalpha-info p {
-  color: #ffffff;
+  color: #fff;
   font-size: 14px;
   text-transform: uppercase;
   padding: 0;
