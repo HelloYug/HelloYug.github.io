@@ -40,10 +40,10 @@
 ✔️ About\
 ✔️ Interests\
 ✔️ Education\
-✔️ Online Certification\
+✔️ Certifications\
 ✔️ Experience\
-✔️ Projects \
-✔️ Skills \
+✔️ Projects\
+✔️ Skills\
 ✔️ Resume\
 ✔️ Contact Info
 
