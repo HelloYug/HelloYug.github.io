@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting...</title>
+  <script>
+    // GitHub Pages SPA redirect
+    // This script takes the current URL and converts the path into a hash
+    // so that the single page app can handle it
+    (function() {
+      var path = window.location.pathname;
+      var segments = path.split('/').filter(function(segment) {
+        return segment.length > 0 && segment !== 'index.html';
+      });
+      
+      // Get the last segment (section name)
+      var section = segments[segments.length - 1];
+      
+      // Valid sections
+      var validSections = ['about', 'education', 'experience', 'projects', 'skills', 'contacts', 'links'];
+      
+      // Check if it's the resume page
+      if (section && section.toLowerCase() === 'resume') {
+        window.location.replace(window.location.origin + '/resume.html');
+      } else if (section && validSections.indexOf(section.toLowerCase()) !== -1) {
+        // Redirect to index with the section in the path
+        var baseUrl = window.location.origin;
+        var newUrl = baseUrl + '/' + section;
+        window.location.replace(newUrl);
+      } else {
+        // Redirect to home
+        window.location.replace(window.location.origin + '/');
+      }
+    })();
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>
