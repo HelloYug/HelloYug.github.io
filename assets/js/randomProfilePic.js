@@ -1,6 +1,6 @@
 window.addEventListener("load", function() {
   // Define weights (higher number = higher chance)
-  const weights = [1, 1, 1, 0, 3]; // Corresponds to pics 1-5
+  const weights = [1, 1, 1, 0, 2]; // Corresponds to pics 1-5
   const total = weights.reduce((a, b) => a + b, 0);
 
   // Generate weighted random number

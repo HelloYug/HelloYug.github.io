@@ -758,6 +758,7 @@ section .container {
   height: 130px; /* or adjust to your desired fixed height */
   object-fit: cover;
   background: #fff;
+  border-radius: 5px;
 }
 
 
@@ -886,7 +887,7 @@ section .container {
 .portfolio .portfolio-wrap .portfolio-links a {
   color: #fff;
   margin: 0 2px;
-  font-size: 28px;
+  font-size: 32px;
   display: inline-block;
   transition: 0.3s;
 }
@@ -1226,10 +1227,11 @@ section .container {
   height: 100%; /* Different image height than portfolio */
   object-fit: cover;
   background: #fff;
+  border-radius: 05px;
 }
 
 .newalpha .newalpha-links a i {
-  font-size: 40px;
+  font-size: 50px;
 }
 
 .newalpha #newalpha-flters {
