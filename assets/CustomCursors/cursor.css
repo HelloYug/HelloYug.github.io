@@ -1,0 +1,100 @@
+/* ---------------------------------------------------- */
+/* CUSTOM CURSOR STYLING */
+/* ---------------------------------------------------- */
+
+/* CUSTOM CURSOR CONTAINER (JS moves this) */
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.05s linear; 
+}
+
+/* CURSOR INNER ELEMENT (Default: Small Circle) */
+.cursor-inner {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #12d640; /* Bright Green from style.css */
+    box-shadow: 0 0 8px #12d640, 0 0 20px #12d640, 0 0 40px rgba(18, 214, 64, 0.6); 
+    opacity: 1;
+    /* KEY TRANSITION: Smoothly animates size, shape, and opacity over 0.3s */
+    transition: 
+        transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+        border-radius 0.3s,
+        width 0.3s, 
+        height 0.3s,
+        opacity 0.3s,
+        box-shadow 0.3s,
+        background-color 0.3s;
+}
+
+/* ---------------------------------------------------- */
+/* STATE A: TEXT HOVER (I-Beam) */
+/* ---------------------------------------------------- */
+.text-hover .cursor-inner {
+    width: 2px;
+    height: 28px;
+    border-radius: 0; 
+    transform: translate(5px, -14px); /* Center I-beam */
+    background-color: #ffc107; /* Gold/Yellow for contrast */
+    box-shadow: 0 0 8px #ffc107, 0 0 15px rgba(255, 193, 7, 0.6); /* Golden glow */
+}
+
+
+/* ---------------------------------------------------- */
+/* STATE B: LINK HOVER (Circuit Node Expansion) */
+/* ---------------------------------------------------- */
+
+/* The central circle remains, but gets a massive glow */
+.link-hover .cursor-inner {
+    width: 14px;
+    height: 14px;
+    background-color: #ffc107; /* Darker green for contrast */
+    box-shadow: 0 0 15px #ffbf00, 0 0 35px #12d640, 0 0 70px rgba(18, 214, 64, 0.8); /* Stronger pulse glow */
+    transform: scale(1.2); /* Slightly bigger pulse */
+    border-radius: 50%;
+}
+
+/* Pseudo-element for the LEFT Line */
+.custom-cursor::before,
+.custom-cursor::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 2px; /* Line thickness */
+    width: 0; /* Starts hidden (0 width) */
+    background-color: #ffc107; /* Gold lines for contrast */
+    box-shadow: 0 0 8px #ffc107, 0 0 15px rgba(255, 193, 7, 0.6);
+    transform: translate(-50%, -50%); /* Base transform */
+    opacity: 0;
+    /* KEY TRANSITION: Animates the line's width and opacity */
+    transition: width 0.3s ease-out, opacity 0.3s;
+}
+
+/* LEFT Line positioning */
+.custom-cursor::before {
+    transform: translate(-22px, -50%); /* Position left of the circle */
+}
+
+/* RIGHT Line positioning */
+.custom-cursor::after {
+    transform: translate(10px, -50%); /* Position right of the circle */
+}
+
+/* ACTIVATION: Animate on link-hover class */
+.link-hover.custom-cursor::before,
+.link-hover.custom-cursor::after {
+    width: 16px; /* Expand to full width - longer lines */
+    opacity: 1;
+}
+
+/* ---------------------------------------------------- */
+/* HIDE DEFAULT CURSOR */
+/* ---------------------------------------------------- */
+body, a, button, .nav-link {
+    cursor: none !important;
+}
