@@ -3192,3 +3192,38 @@ section .container {
   --accent-h: 0;
   --accent-s: 0%;
 }
+
+/* ---------------------------------------------------- */
+/* MOBILE RESPONSIVENESS OVERRIDES */
+/* ---------------------------------------------------- */
+
+@media (max-width: 992px) {
+
+  /* Fix social icons overflowing the header */
+  #header .social-links {
+    margin-top: 15px;
+  }
+
+  #header .social-links a {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* Prevent horizontal scrolling and give breathing room */
+  .interests .icon-box {
+    margin-bottom: 20px;
+  }
+
+  /* Scale down massive headers on phones */
+  .section-title h2 {
+    font-size: 28px;
+  }
+
+  .about .content h3 {
+    font-size: 22px;
+  }
+}

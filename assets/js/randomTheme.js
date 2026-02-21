@@ -1,10 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
     // --- CONFIGURATION ---
     const ENABLE_RANDOM_THEME = true; // Set to false to always use the default theme
-    const DEFAULT_THEME = "theme-blue"; // Fallback theme if randomization is off
+    const DEFAULT_THEME = "theme-default"; // Fallback theme if randomization is off
 
     // Array of themes with their respective weights (higher weight = more likely to be chosen)
     const themes = [
+        { name: "theme-default", weight: 1 }, // Original Green & Dark Blue theme
         { name: "theme-blue", weight: 1 },
         { name: "theme-purple", weight: 1 },
         { name: "theme-orange", weight: 1 },
