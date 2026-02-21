@@ -12,19 +12,33 @@ document.querySelectorAll('.back-button').forEach(button => {
     button.addEventListener('click', function (e) {
         e.preventDefault();
 
-        // Try to close the tab/window
-        const closed = window.close();
+        const bc = new BroadcastChannel('portfolio_channel');
 
-        // If close didn't work (returns undefined or false), navigate back
-        if (closed === false || closed === undefined) {
-            // Try using history back if available
-            if (window.history.length > 1) {
-                window.history.back();
-            } else {
-                // Otherwise navigate to index
-                window.location.href = 'index.html';
+        // Setup a timeout: if we don't hear back in 200ms, assume index is closed.
+        let fallbackTimeout = setTimeout(() => {
+            bc.close();
+            window.location.href = `index.html?theme=${document.body.className}`;
+        }, 200);
+
+        // Listen for response from index.html
+        bc.onmessage = function (event) {
+            if (event.data === 'index_is_open') {
+                // Heard back! Clear the redirect timeout.
+                clearTimeout(fallbackTimeout);
+
+                // Try closing the tab
+                window.close();
+
+                // If it's still alive after 100ms, browser blocked close(), so redirect anyway.
+                setTimeout(() => {
+                    bc.close();
+                    window.location.href = `index.html?theme=${document.body.className}`;
+                }, 100);
             }
-        }
+        };
+
+        // Ping the index tab
+        bc.postMessage('ping_index');
     });
 });
 

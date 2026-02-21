@@ -7,7 +7,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="assets/favicon_io/output-onlinepngtools.png" />
 
-  <title>Yug Agarwal | Resume</title>
+  <title>Yug Agarwal | Tech Resume & Professional Experience</title>
+  <link rel="canonical" href="https://helloyug.github.io/resume.html" />
+
+  <!-- Global SEO Meta Tags -->
+  <meta name="description"
+    content="View Yug Agarwal's professional resume detailing expertise in AI, backend development, market research, and intelligent automation systems.">
+  <meta name="keywords"
+    content="Yug Agarwal Resume, Software Engineer CV, AI Developer Resume, Tech Portfolio, Backend Developer Experience, Machine Learning Engineer">
+  <meta name="author" content="Yug Agarwal">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / LinkedIn / Facebook -->
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Yug Agarwal | Resume & Tech Experience">
+  <meta property="og:description"
+    content="View Yug Agarwal's professional resume detailing expertise in AI, backend development, market research, and intelligent automation systems.">
+  <meta property="og:url" content="https://helloyug.github.io/resume.html">
+  <meta property="og:image" content="https://helloyug.github.io/assets/img/YugAgarwalPFP%20(1).jpg">
+  <meta property="og:site_name" content="Yug Agarwal Resume">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Yug Agarwal | Resume & Tech Experience">
+  <meta name="twitter:description"
+    content="View Yug Agarwal's professional resume detailing expertise in AI, backend development, market research, and intelligent automation systems.">
+  <meta name="twitter:image" content="https://helloyug.github.io/assets/img/YugAgarwalPFP%20(1).jpg">
+
+  <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/resume.css">
 
   <!-- Custom Cursor CSS -->
@@ -16,63 +43,66 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 </head>
 
-<!-- Header with buttons -->
-<header class="header">
-  <h2 style="color: #f0f0f0;">Yug Agarwal's Resume</h2>
-  <div class="button-group">
-    <a href="#" class="btn btn-back back-button">
-      <i class="fas fa-arrow-left"></i> Back to Portfolio
-    </a>
-    <a id="download-link-header" class="btn btn-download" download>
-      <i class="fas fa-download"></i> Download PDF
-    </a>
-    <a id="view-link-header" class="btn btn-view">
-      <i class="fas fa-eye"></i> View Full PDF
-    </a>
+<body class="theme-blue">
+  <!-- Dynamic Theme Randomizer -->
+  <script src="assets/js/randomTheme.js"></script>
+  <!-- Header with buttons -->
+  <header class="header">
+    <h2 style="color: #f0f0f0;">Yug Agarwal's Resume</h2>
+    <div class="button-group">
+      <a href="#" class="btn btn-back back-button">
+        <i class="fas fa-arrow-left"></i> Back to Portfolio
+      </a>
+      <a id="download-link-header" class="btn btn-download" download>
+        <i class="fas fa-download"></i> Download PDF
+      </a>
+      <a id="view-link-header" class="btn btn-view">
+        <i class="fas fa-eye"></i> View Full PDF
+      </a>
+    </div>
+  </header>
+
+  <!-- PDF Page Grid -->
+  <div class="pdf-grid" id="pdf-grid">
+    <div class="loading">Generating resume previews...</div>
   </div>
-</header>
 
-<!-- PDF Page Grid -->
-<div class="pdf-grid" id="pdf-grid">
-  <div class="loading">Generating resume previews...</div>
-</div>
+  <!-- Footer with buttons -->
+  <footer class="footer">
+    <div class="button-group">
+      <a href="#" class="btn btn-back back-button">
+        <i class="fas fa-arrow-left"></i> Back to Portfolio
+      </a>
+      <a id="download-link-footer" class="btn btn-download" download>
+        <i class="fas fa-download"></i> Download PDF
+      </a>
+      <a id="view-link-footer" class="btn btn-view">
+        <i class="fas fa-eye"></i> View Full PDF
+      </a>
+    </div>
+  </footer>
 
-<!-- Footer with buttons -->
-<footer class="footer">
-  <div class="button-group">
-    <a href="#" class="btn btn-back back-button">
-      <i class="fas fa-arrow-left"></i> Back to Portfolio
-    </a>
-    <a id="download-link-footer" class="btn btn-download" download>
-      <i class="fas fa-download"></i> Download PDF
-    </a>
-    <a id="view-link-footer" class="btn btn-view">
-      <i class="fas fa-eye"></i> View Full PDF
-    </a>
+  <!-- PDF Viewer Modal -->
+  <div class="modal" id="pdf-modal">
+    <div class="modal-content">
+      <button class="close-btn" id="close-modal">&times;</button>
+      <iframe class="pdf-viewer" id="pdf-viewer" frameborder="0"></iframe>
+    </div>
   </div>
-</footer>
 
-<!-- PDF Viewer Modal -->
-<div class="modal" id="pdf-modal">
-  <div class="modal-content">
-    <button class="close-btn" id="close-modal">&times;</button>
-    <iframe class="pdf-viewer" id="pdf-viewer" frameborder="0"></iframe>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Resume JavaScript -->
+  <script src="assets/js/resume.js"></script>
+
+  <!-- Custom Cursor HTML -->
+  <div class="custom-cursor">
+    <div class="cursor-inner"></div>
   </div>
-</div>
 
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<!-- Resume JavaScript -->
-<script src="assets/js/resume.js"></script>
-
-<!-- Custom Cursor HTML -->
-<div class="custom-cursor">
-  <div class="cursor-inner"></div>
-</div>
-
-<!-- Custom Cursor JS -->
-<script src="assets/CustomCursors/cursor.js"></script>
+  <!-- Custom Cursor JS -->
+  <script src="assets/CustomCursors/cursor.js"></script>
 
 </body>
 

@@ -150,3 +150,12 @@
   });
 
 })(jQuery);
+
+/* --- Listen for resume.html cross-tab ping --- */
+const bc = new BroadcastChannel('portfolio_channel');
+bc.onmessage = function(event) {
+  if (event.data === 'ping_index') {
+    bc.postMessage('index_is_open');
+  }
+};
+
