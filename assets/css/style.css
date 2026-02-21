@@ -168,7 +168,7 @@ h6 {
 }
 
 .nav-menu li+li {
-  margin-left: 30px;
+  margin-left: 20px;
 }
 
 .nav-menu a {
@@ -1501,3 +1501,120 @@ section .container {
 #about-social-wrapper .social-links a:hover {
   background: #1c7d32;
 }
+
+/* ---------------------------------------------------- */
+/* EXTRACTED INLINE STYLES */
+/* ---------------------------------------------------- */
+.custom-inline-1 { color:#fff }
+.custom-inline-2 { color:#12D640 }
+.custom-inline-3 { text-align:justify; }
+.custom-inline-4 { color: #ffbb2c; }
+.custom-inline-5 { color: #5578ff; }
+.custom-inline-6 { color: #e80368; }
+.custom-inline-7 { color: #1c7d32; }
+.custom-inline-8 { color: #28a745; }
+.custom-inline-9 { color: #f1081f; }
+.custom-inline-10 { color: #47aeff; }
+.custom-inline-11 { color: #ffc107; }
+.custom-inline-12 { position: relative; height: auto; }
+.custom-inline-13 { text-align:left; }
+.custom-inline-14 { color:#12d640 }
+.custom-inline-15 { float: right; font-size: 14px; color: #fff; margin-top: 5px; text-transform: none; }
+.custom-inline-16 { text-align:left; }
+.custom-inline-17 { text-align:left;color:#fff }
+.custom-inline-18 { text-align:left; }
+.custom-inline-19 { text-align:left; }
+.custom-inline-20 { color:#12d640 }
+.custom-inline-21 { float: right; font-size: 14px; color: #fff; margin-top: 5px; text-transform: none; }
+.custom-inline-22 { text-align:left; }
+.custom-inline-23 { text-align:left;color:#fff }
+.custom-inline-24 { text-align:left; }
+.custom-inline-25 { text-align:left; }
+.custom-inline-26 { color:#12d640 }
+.custom-inline-27 { float: right; font-size: 14px; color: #fff; margin-top: 5px; text-transform: none; }
+.custom-inline-28 { text-align:left; }
+.custom-inline-29 { text-align:left;color:#fff }
+.custom-inline-30 { text-align:left; }
+.custom-inline-31 { text-align:left; }
+.custom-inline-32 { color:#12d640 }
+.custom-inline-33 { float: right; font-size: 14px; color: #fff; margin-top: 5px; text-transform: none; }
+.custom-inline-34 { text-align:left; }
+.custom-inline-35 { text-align:left;color:#fff }
+.custom-inline-36 { text-align:left; }
+.custom-inline-37 { padding: 30px; text-align: left; }
+.custom-inline-38 { color:#12d640; text-align: left; }
+.custom-inline-39 { font-size: 14px; color: #fff; white-space: nowrap; padding: 6px 14px; background: rgba(255,255,255,0.08); border-radius: 4px; text-decoration: none; transition: background 0.3s; }
+.custom-inline-39:hover { background: rgba(255,255,255,0.15) !important; }
+.custom-inline-40 { text-align: left; }
+.custom-inline-41 { display:inline-block; padding: 4px 10px; background: rgba(255,255,255,0.08); border-radius: 4px; font-size: 13px; margin-right: 8px; margin-bottom: 5px; color: #ccc; }
+.custom-inline-42 { display:inline-block; padding: 4px 10px; background: rgba(255,255,255,0.08); border-radius: 4px; font-size: 13px; margin-right: 8px; margin-bottom: 5px; color: #ccc; }
+.custom-inline-43 { display:inline-block; padding: 4px 10px; background: rgba(18, 214, 64, 0.1); border-radius: 4px; font-size: 13px; margin-right: 8px; margin-bottom: 5px; color: #12d640; }
+.custom-inline-44 { text-align:left;color:#fff; margin-bottom: 12px; }
+.custom-inline-45 { text-align:left; margin-bottom: 0; }
+.custom-inline-46 { padding: 30px; text-align: left; }
+.custom-inline-47 { color:#12d640; text-align: left; }
+.custom-inline-48 { font-size: 14px; color: #fff; white-space: nowrap; padding: 6px 14px; background: rgba(255,255,255,0.08); border-radius: 4px; text-decoration: none; transition: background 0.3s; }
+.custom-inline-48:hover { background: rgba(255,255,255,0.15) !important; }
+.custom-inline-49 { text-align: left; }
+.custom-inline-50 { display:inline-block; padding: 4px 10px; background: rgba(255,255,255,0.08); border-radius: 4px; font-size: 13px; margin-right: 8px; margin-bottom: 5px; color: #ccc; }
+.custom-inline-51 { display:inline-block; padding: 4px 10px; background: rgba(255,255,255,0.08); border-radius: 4px; font-size: 13px; margin-right: 8px; margin-bottom: 5px; color: #ccc; }
+.custom-inline-52 { display:inline-block; padding: 4px 10px; background: rgba(18, 214, 64, 0.1); border-radius: 4px; font-size: 13px; margin-right: 8px; margin-bottom: 5px; color: #12d640; }
+.custom-inline-53 { text-align:left;color:#fff; margin-bottom: 12px; }
+.custom-inline-54 { text-align:left; margin-bottom: 0; }
+.custom-inline-55 { padding: 30px; text-align: left; }
+.custom-inline-56 { color:#12d640; text-align: left; }
+.custom-inline-57 { font-size: 14px; color: #fff; white-space: nowrap; padding: 6px 14px; background: rgba(255,255,255,0.08); border-radius: 4px; text-decoration: none; transition: background 0.3s; }
+.custom-inline-57:hover { background: rgba(255,255,255,0.15) !important; }
+.custom-inline-58 { text-align: left; }
+.custom-inline-59 { display:inline-block; padding: 4px 10px; background: rgba(255,255,255,0.08); border-radius: 4px; font-size: 13px; margin-right: 8px; margin-bottom: 5px; color: #ccc; }
+.custom-inline-60 { display:inline-block; padding: 4px 10px; background: rgba(255,255,255,0.08); border-radius: 4px; font-size: 13px; margin-right: 8px; margin-bottom: 5px; color: #ccc; }
+.custom-inline-61 { display:inline-block; padding: 4px 10px; background: rgba(18, 214, 64, 0.1); border-radius: 4px; font-size: 13px; margin-right: 8px; margin-bottom: 5px; color: #12d640; }
+.custom-inline-62 { text-align:left;color:#fff; margin-bottom: 12px; }
+.custom-inline-63 { text-align:left; margin-bottom: 0; }
+.custom-inline-64 { background:#09203a }
+.custom-inline-65 { text-align:left;color:#12d640 }
+.custom-inline-66 { display:flex; flex-wrap:wrap; gap:30px; align-items:center; }
+.custom-inline-67 { text-align:center }
+.custom-inline-68 { text-align:center }
+.custom-inline-69 { text-align:center }
+.custom-inline-70 { text-align:center }
+.custom-inline-71 { text-align:center }
+.custom-inline-72 { background:#09203a }
+.custom-inline-73 { text-align:left;color:#12d640 }
+.custom-inline-74 { display:flex; flex-wrap:wrap; gap:30px; align-items:center; }
+.custom-inline-75 { text-align:center }
+.custom-inline-76 { text-align:center }
+.custom-inline-77 { text-align:center }
+.custom-inline-78 { text-align:center }
+.custom-inline-79 { text-align:center }
+.custom-inline-80 { text-align:center }
+.custom-inline-81 { text-align:center }
+.custom-inline-82 { background:#09203a }
+.custom-inline-83 { text-align:left;color:#12d640 }
+.custom-inline-84 { display:flex; flex-wrap:wrap; gap:30px; align-items:center; }
+.custom-inline-85 { text-align:center }
+.custom-inline-86 { text-align:center }
+.custom-inline-87 { text-align:center }
+.custom-inline-88 { background:#09203a }
+.custom-inline-89 { text-align:left;color:#12d640 }
+.custom-inline-90 { display:flex; flex-wrap:wrap; gap:30px; align-items:center; }
+.custom-inline-91 { text-align:center }
+.custom-inline-92 { text-align:center }
+.custom-inline-93 { background:#09203a }
+.custom-inline-94 { text-align:left;color:#12d640 }
+.custom-inline-95 { display:flex; flex-wrap:wrap; gap:30px; align-items:center; }
+.custom-inline-96 { text-align:center }
+.custom-inline-97 { text-align:center }
+.custom-inline-98 { text-align:center }
+.custom-inline-99 { text-align:center }
+.custom-inline-100 { color:#fff; }
+.custom-inline-101 { color:#fff; }
+.custom-inline-102 { color:#fff; }
+.custom-inline-103 { visibility: none; }
+.custom-inline-104 { max-width: 100%; margin:20px auto; padding: 30px; background: rgba(255, 255, 255, 0.08); border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); display:flex; flex-direction: column; gap: 1rem; font-family: Arial, sans-serif; color: #fff; }
+.custom-inline-105 { display: flex; gap: 1rem; flex-wrap: wrap; }
+.custom-inline-106 { flex:1 1 45%; min-width: 150px; padding: 15px; border-radius: 4px; border: none; background: rgba(255,255,255,0.08); color: #fff; box-sizing: border-box; }
+.custom-inline-107 { flex:1 1 45%; min-width: 150px; padding: 15px; border-radius: 4px; border: none; background: rgba(255,255,255,0.08); color: #fff; box-sizing: border-box; }
+.custom-inline-108 { padding: 15px; border-radius: 4px; border: none; background: rgba(255,255,255,0.08); color: #fff; box-sizing: border-box; width: 100%; }
+.custom-inline-109 { padding: 15px; border-radius: 4px; border: none; background: rgba(255,255,255,0.08); color: #fff; box-sizing: border-box; width: 100%; resize: vertical; }
+.custom-inline-110 { width: 100%; padding: 12px 0; background: #1c7d32; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-size: 1rem; transition: background-color 0.3s ease; }

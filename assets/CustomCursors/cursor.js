@@ -1,19 +1,25 @@
 /* ---------------------------------------------------- */
 /* CUSTOM CURSOR JAVASCRIPT LOGIC */
 /* ---------------------------------------------------- */
-(function() {
+document.addEventListener("DOMContentLoaded", () => {
+    // Check if device is a touch device and exit
+    if (window.matchMedia("(hover: none) and (pointer: coarse)").matches) {
+        return;
+    }
+
     const cursor = document.querySelector('.custom-cursor');
     if (!cursor) return; // Exit if cursor element doesn't exist
-    
-    const interactiveElements = document.querySelectorAll('a, button, .nav-link'); 
-    const textElements = document.querySelectorAll('p, h1, h2, h3, h4, li, code'); 
-    
+
+    // We get all interactive and text elements inside the DOMContentLoaded
+    const interactiveElements = document.querySelectorAll('a, button, .nav-link');
+    const textElements = document.querySelectorAll('p, h1, h2, h3, h4, li, code, span, div');
+
     // 1. Mouse Movement
     document.addEventListener('mousemove', e => {
         // Offset by half the default cursor size (6px)
         cursor.style.transform = `translate3d(${e.clientX - 6}px, ${e.clientY - 6}px, 0)`;
     });
-    
+
     // 2. State Switching: Link Hover (Circuit Node)
     interactiveElements.forEach(element => {
         element.addEventListener('mouseenter', () => {
@@ -24,7 +30,7 @@
             cursor.classList.remove('link-hover');
         });
     });
-    
+
     // 3. State Switching: Text Hover (I-Beam)
     textElements.forEach(element => {
         // Prevent triggering I-beam on elements that are also links
@@ -43,4 +49,4 @@
     document.addEventListener('mouseleave', () => {
         cursor.classList.remove('link-hover', 'text-hover');
     });
-})();
+});

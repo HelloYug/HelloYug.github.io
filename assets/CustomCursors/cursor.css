@@ -98,3 +98,15 @@
 body, a, button, .nav-link {
     cursor: none !important;
 }
+
+/* ---------------------------------------------------- */
+/* TOUCH DEVICE OVERRIDES */
+/* ---------------------------------------------------- */
+@media (hover: none) and (pointer: coarse), (max-width: 768px) {
+    .custom-cursor {
+        display: none !important;
+    }
+    body, a, button, .nav-link {
+        cursor: auto !important;
+    }
+}
