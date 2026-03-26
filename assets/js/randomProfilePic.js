@@ -1,15 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
   // --- CONFIGURATION ---
   const ENABLE_RANDOM_PIC = true; // Set to false to always show the default picture
-  const DEFAULT_PIC = "YugAgarwalPFP (1).jpg"; // Fallback picture if randomization is off
+  const DEFAULT_PIC = "yug-agarwal-software-engineer-profile-1.jpg"; // Fallback picture if randomization is off
 
   // Array of profiles makes it much easier to manage extensions and weights
   const profiles = [
-    { file: "YugAgarwalPFP (1).jpg", weight: 1 },
-    { file: "YugAgarwalPFP (2).jpg", weight: 1 },
-    { file: "YugAgarwalPFP (3).jpg", weight: 1 },
-    { file: "YugAgarwalPFP (4).jpg", weight: 0 }, // 0% chance
-    { file: "YugAgarwalPFP (5).png", weight: 2 }
+    { file: "yug-agarwal-software-engineer-profile-1.jpg", weight: 1 },
+    { file: "yug-agarwal-software-engineer-profile-2.jpg", weight: 1 },
+    { file: "yug-agarwal-software-engineer-profile-3.jpg", weight: 1 },
+    { file: "yug-agarwal-software-engineer-profile-4.jpg", weight: 0 }, // 0% chance
+    { file: "yug-agarwal-software-engineer-profile-5.png", weight: 2 }
   ];
 
   const img = document.getElementById("profile-pic");

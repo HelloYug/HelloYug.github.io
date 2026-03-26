@@ -128,20 +128,24 @@
 
   // Portfolio isotope and filter
   $(window).on('load', function() {
-    var portfolioIsotope = $('.newalpha-container').isotope({
-      itemSelector: '.newalpha-item',
-      layoutMode: 'fitRows'
-    });
+    var portfolioContainer = $('.newalpha-container');
+    if (portfolioContainer.length) {
+      portfolioContainer.imagesLoaded(function() {
+        var portfolioIsotope = portfolioContainer.isotope({
+          itemSelector: '.newalpha-item',
+          layoutMode: 'masonry'
+        });
 
-    $('#newalpha-flters li').on('click', function() {
-      $("#newalpha-flters li").removeClass('filter-active');
-      $(this).addClass('filter-active');
+        $('#newalpha-flters li').on('click', function() {
+          $("#newalpha-flters li").removeClass('filter-active');
+          $(this).addClass('filter-active');
 
-      portfolioIsotope.isotope({
-        filter: $(this).data('filter')
+          portfolioIsotope.isotope({
+            filter: $(this).data('filter')
+          });
+        });
       });
-    });
-
+    }
   });
 
   // Initiate venobox (lightbox feature used in portofilo)
