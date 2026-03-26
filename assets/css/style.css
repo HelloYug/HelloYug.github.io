@@ -1829,6 +1829,19 @@ section .container {
   margin-bottom: 30px;
 }
 
+.newalpha .newalpha-item center h4 {
+  min-height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.newalpha .newalpha-item center h4 hr {
+  margin: 5px 0 10px 0;
+  border: 0;
+  border-top: 0px solid var(--white-alpha-15);
+}
+
 
 
 
