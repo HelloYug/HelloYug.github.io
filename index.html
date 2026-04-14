@@ -3,6 +3,25 @@
 
 <head>
   <meta charset="utf-8">
+  <script type="text/javascript">
+    // Single Page Apps for GitHub Pages
+    // https://github.com/rafgraph/spa-github-pages
+    // This script checks if a redirect was performed via 404.html and restores the path
+    (function(l) {
+      if (l.search[1] === 'p' ) {
+        var decoded = l.search.slice(1).split('&').map(function(s) { 
+          return s.replace(/~and~/g, '&') 
+        }).filter(function(v) { 
+          return v.indexOf('p=/') === 0 
+        })[0].replace('p=/', '');
+        if (decoded !== l.pathname.slice(1)) {
+          window.history.replaceState(null, null, 
+            l.pathname.slice(0, -1) + (decoded ? '/' + decoded : '') + l.hash
+          );
+        }
+      }
+    }(window.location))
+  </script>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Yug Agarwal | AI-First Software Engineer & Automation Specialist Portfolio</title>
@@ -231,7 +250,7 @@
   <!-- Dynamic Theme Randomizer -->
   <script src="assets/js/randomTheme.js"></script>
   <!-- ======= Header ======= -->
-  <header id="header" class="header-tops">
+  <header id="header" class="">
 
     <div class="container">
 

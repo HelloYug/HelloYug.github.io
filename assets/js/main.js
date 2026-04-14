@@ -100,7 +100,7 @@
     
     // If no hash, check if the path matches a section
     if (!hash) {
-      const path = window.location.pathname.split('/').pop();
+      const path = window.location.pathname.split('/').filter(Boolean).pop();
       if (path && $(`#${path}`).length) {
         hash = `#${path}`;
       }
