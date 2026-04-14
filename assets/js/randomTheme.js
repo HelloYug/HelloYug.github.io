@@ -20,32 +20,30 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-    // 1. Check for theme in priority: URL param > sessionStorage > random
-    const urlParams = new URLSearchParams(window.location.search);
-    const urlTheme = urlParams.get('theme');
-    let storedTheme = sessionStorage.getItem('selected-theme');
-
+    // 1. Get info about current state
     const isResumePage = window.location.pathname.includes('resume');
     const navEntries = performance.getEntriesByType('navigation');
-    const isReload = navEntries.length > 0 && navEntries[0].type === 'reload';
+    const navType = navEntries.length > 0 ? navEntries[0].type : 'navigate';
+    const isReload = navType === 'reload';
 
-    // If it's a reload and we're not on the resume page, force a new random theme 
-    // to "switch between various themes"
+    let storedTheme = sessionStorage.getItem('selected-theme');
+
+    // 2. Logic for Theme Selection
+    // "in case any of the pages is accessed and resume page is not open, and the page is refreshed, switch between various themes"
     if (isReload && !isResumePage) {
-        storedTheme = null;
+        storedTheme = null; // Clear to force a new random selection
     }
 
-    let chosenThemeName = urlTheme || storedTheme;
     let chosenTheme;
 
-    // Validate the chosen theme against our array
-    if (chosenThemeName && themes.some(t => t.name === chosenThemeName)) {
-        chosenTheme = themes.find(t => t.name === chosenThemeName);
+    // Use stored theme if available (and not a forced reload-switch)
+    if (storedTheme && themes.some(t => t.name === storedTheme)) {
+        chosenTheme = themes.find(t => t.name === storedTheme);
     } else {
-        // 2. Otherwise, generate a completely random theme
+        // 3. Generate a random theme
         let availableThemes = themes;
         
-        // If we are forcing a switch on reload, try to avoid the previously selected theme
+        // If we are forcing a switch on reload, avoid the previously selected theme
         if (isReload && !isResumePage && sessionStorage.getItem('selected-theme')) {
             const previousTheme = sessionStorage.getItem('selected-theme');
             availableThemes = themes.filter(t => t.name !== previousTheme);
@@ -56,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const rand = Math.random() * totalWeight;
         let cumulative = 0;
 
-        chosenTheme = availableThemes[0]; // Default
+        chosenTheme = availableThemes[0]; // Default fallback
         for (const theme of availableThemes) {
             cumulative += theme.weight;
             if (rand < cumulative) {
@@ -66,17 +64,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // 3. Persist and apply
+    // 4. Apply and Persist
     sessionStorage.setItem('selected-theme', chosenTheme.name);
     document.body.className = chosenTheme.name;
 
-    // 4. Clean up the URL
-    // Remove theme param if present
-    if (urlTheme) {
-        urlParams.delete('theme');
-    }
-
-    // Prepare clean URL
+    // 5. Clean up the URL (No longer checking for 'theme' param)
     let currentPath = window.location.pathname;
     let needsClean = false;
 
@@ -91,24 +83,24 @@ document.addEventListener("DOMContentLoaded", function () {
         needsClean = true;
     }
 
-    // If theme was in URL or path was cleaned, update address bar
-    if (urlTheme || needsClean) {
+    // Update address bar if path was cleaned
+    if (needsClean) {
+        const urlParams = new URLSearchParams(window.location.search);
         const query = urlParams.toString() ? '?' + urlParams.toString() : '';
         const newUrl = currentPath + query + window.location.hash;
         window.history.replaceState({}, '', newUrl);
     }
 
-    // 5. Clean up URLs on the page (Normalizing index.html to / for clean domain-only Home URL)
+    // 6. Normalize links on the page (Ensure index.html is replaced by /)
     const allLinks = document.querySelectorAll('a');
     allLinks.forEach(link => {
         try {
             const url = new URL(link.href, window.location.href);
             if (url.origin === window.location.origin) {
-                // Remove index.html from end of paths for clean "domain-only" home URLs
                 if (url.pathname.endsWith('/index.html')) {
                     url.pathname = url.pathname.replace('/index.html', '/');
                     link.href = url.toString();
-                } else if (url.pathname === 'index.html') {
+                } else if (url.pathname === 'index.html' || url.pathname.endsWith('/index.html')) {
                     link.href = './';
                 }
             }

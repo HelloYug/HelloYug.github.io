@@ -13,12 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
     backButtons.forEach(btn => {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
-            // If the window was opened by another page (e.g. Portfolio), close it
-            // This returns the user to the already open portfolio page.
-            if (window.opener && window.opener !== window) {
+            // Requirement: "if any page already open, close the resume tab else open home page in the same tab"
+            // We use window.opener as a proxy to check if we were opened from the portfolio page.
+            if (window.opener && window.opener !== window && !window.opener.closed) {
                 window.close();
             } else {
-                // If it was accessed directly (no opener), navigate to home in this tab
+                // "else open home page in the same tab"
                 window.location.href = this.href;
             }
         });
