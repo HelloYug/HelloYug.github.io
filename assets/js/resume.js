@@ -7,40 +7,7 @@ document.getElementById('view-link-header').href = `YugAgarwal.pdf?v=${timestamp
 document.getElementById('download-link-footer').href = `YugAgarwal.pdf?v=${timestamp}`;
 document.getElementById('view-link-footer').href = `YugAgarwal.pdf?v=${timestamp}`;
 
-// Handle back button clicks
-document.querySelectorAll('.back-button').forEach(button => {
-    button.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        const bc = new BroadcastChannel('portfolio_channel');
-
-        // Setup a timeout: if we don't hear back in 200ms, assume index is closed.
-        let fallbackTimeout = setTimeout(() => {
-            bc.close();
-            window.location.href = `index.html?theme=${document.body.className}`;
-        }, 200);
-
-        // Listen for response from index.html
-        bc.onmessage = function (event) {
-            if (event.data === 'index_is_open') {
-                // Heard back! Clear the redirect timeout.
-                clearTimeout(fallbackTimeout);
-
-                // Try closing the tab
-                window.close();
-
-                // If it's still alive after 100ms, browser blocked close(), so redirect anyway.
-                setTimeout(() => {
-                    bc.close();
-                    window.location.href = `index.html?theme=${document.body.className}`;
-                }, 100);
-            }
-        };
-
-        // Ping the index tab
-        bc.postMessage('ping_index');
-    });
-});
+// Navigation is handled by standard links with theme propagation in assets/js/randomTheme.js
 
 // PDF viewer functionality
 document.addEventListener('DOMContentLoaded', function () {

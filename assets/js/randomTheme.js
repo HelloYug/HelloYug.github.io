@@ -20,22 +20,24 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-    // 1. Check if a theme was passed in the URL (when navigating between linked pages)
+    // 1. Check for theme in priority: URL param > localStorage > random
     const urlParams = new URLSearchParams(window.location.search);
-    const passedTheme = urlParams.get('theme');
+    const urlTheme = urlParams.get('theme');
+    const storedTheme = localStorage.getItem('selected-theme');
 
+    let chosenThemeName = urlTheme || storedTheme;
     let chosenTheme;
 
-    // Validate the passed theme against our array
-    if (passedTheme && themes.some(t => t.name === passedTheme)) {
-        chosenTheme = themes.find(t => t.name === passedTheme);
+    // Validate the chosen theme against our array
+    if (chosenThemeName && themes.some(t => t.name === chosenThemeName)) {
+        chosenTheme = themes.find(t => t.name === chosenThemeName);
     } else {
-        // 2. Otherwise, generate a completely random theme for this visit
+        // 2. Otherwise, generate a completely random theme
         const totalWeight = themes.reduce((sum, theme) => sum + theme.weight, 0);
         const rand = Math.random() * totalWeight;
         let cumulative = 0;
 
-        chosenTheme = themes[0]; // Default to first
+        chosenTheme = themes[0]; // Default
         for (const theme of themes) {
             cumulative += theme.weight;
             if (rand < cumulative) {
@@ -45,18 +47,52 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Apply the chosen theme (overwriting the hardcoded HTML class)
+    // 3. Persist and apply
+    localStorage.setItem('selected-theme', chosenTheme.name);
     document.body.className = chosenTheme.name;
 
-    // 3. Find any internal links to our portfolio pages and attach the current theme to them
-    // This allows the user to navigate back and forth without losing their color, entirely statelessly.
-    const internalLinks = document.querySelectorAll('a[href^="resume.html"], a[href^="index.html"]');
-    internalLinks.forEach(link => {
-        const url = new URL(link.href, window.location.href);
-        url.searchParams.set('theme', chosenTheme.name);
-        link.href = url.toString();
+    // 4. Clean up the URL
+    // Remove theme param if present
+    if (urlTheme) {
+        urlParams.delete('theme');
+    }
+
+    // Prepare clean URL
+    let currentPath = window.location.pathname;
+    let needsClean = false;
+
+    // Remove index.html for "domain only" requirement on Home
+    if (currentPath.endsWith('/index.html')) {
+        currentPath = currentPath.replace('/index.html', '/');
+        needsClean = true;
+    } 
+    // Remove .html extension from other pages for cleaner URLs
+    else if (currentPath.endsWith('.html')) {
+        currentPath = currentPath.replace('.html', '');
+        needsClean = true;
+    }
+
+    // If theme was in URL or path was cleaned, update address bar
+    if (urlTheme || needsClean) {
+        const query = urlParams.toString() ? '?' + urlParams.toString() : '';
+        const newUrl = currentPath + query + window.location.hash;
+        window.history.replaceState({}, '', newUrl);
+    }
+
+    // 5. Clean up URLs on the page (Normalizing index.html to / for clean domain-only Home URL)
+    const allLinks = document.querySelectorAll('a');
+    allLinks.forEach(link => {
+        try {
+            const url = new URL(link.href, window.location.href);
+            if (url.origin === window.location.origin) {
+                // Remove index.html from end of paths for clean "domain-only" home URLs
+                if (url.pathname.endsWith('/index.html')) {
+                    url.pathname = url.pathname.replace('/index.html', '/');
+                    link.href = url.toString();
+                } else if (url.pathname === 'index.html') {
+                    link.href = './';
+                }
+            }
+        } catch (e) {}
     });
-
-    // Apply the chosen theme (overwriting the hardcoded HTML class)
-    document.body.className = chosenTheme.name;
 });

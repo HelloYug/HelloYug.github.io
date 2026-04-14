@@ -8,13 +8,50 @@
 !(function($) {
   "use strict";
 
+  // Calculate the base path once to avoid stacking (e.g., /about/skills)
+  const SITE_ROOT = window.location.pathname.replace(/index\.html$/, '').replace(/(about|education|experience|Projects|skills|contacts|links)\/?$/, '');
+
+  // Function to update URL without hash but keeping current behavior
+  function updateURL(hash) {
+      if (typeof history.pushState !== "undefined") {
+          let path = hash.replace('#', '').replace('Projects', 'projects'); // Normalize projects case if needed
+          let newUrl;
+          
+          if (hash === '#header' || !path) {
+              newUrl = SITE_ROOT;
+          } else {
+              newUrl = (SITE_ROOT.endsWith('/') ? SITE_ROOT : SITE_ROOT + '/') + path;
+          }
+          
+          // Only push state if the current state is different
+          if (!history.state || history.state.section !== hash) {
+            history.pushState({ section: hash }, "", newUrl);
+
+            // Track virtual page view in Google Analytics
+            if (typeof gtag === 'function') {
+                gtag('event', 'page_view', {
+                    page_title: document.title,
+                    page_location: window.location.href,
+                    page_path: newUrl
+                });
+            }
+          }
+      }
+  }
+
   // Nav Menu
   $(document).on('click', '.nav-menu a, .mobile-nav a', function(e) {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
       var hash = this.hash;
       var target = $(hash);
-      if (target.length) {
+      
+      if (target.length || hash == '#header') {
         e.preventDefault();
+
+        // Update URL to clean format (if not triggered by popstate already)
+        if (!e.isTrigger) {
+          updateURL(hash);
+        }
 
         if ($(this).parents('.nav-menu, .mobile-nav').length) {
           $('.nav-menu .active, .mobile-nav .active').removeClass('active');
@@ -50,19 +87,40 @@
     }
   });
 
-  // Activate/show sections on load with hash links
-  if (window.location.hash) {
-    var initial_nav = window.location.hash;
-    if ($(initial_nav).length) {
-      $('#header').addClass('header-top');
-      $('.nav-menu .active, .mobile-nav .active').removeClass('active');
-      $('.nav-menu, .mobile-nav').find('a[href="' + initial_nav + '"]').parent('li').addClass('active');
-      setTimeout(function() {
-        $("section").removeClass('section-show');
-        $(initial_nav).addClass('section-show');
-      }, 350);
+  // Handle popstate for browser back/forward
+  window.addEventListener('popstate', function(e) {
+    let hash = (e.state && e.state.section) ? e.state.section : '#header';
+    // Trigger navigation behavior without adding to history again
+    $(`.nav-menu a[href="${hash}"], .mobile-nav a[href="${hash}"]`).click();
+  });
+
+  // Activate/show sections on load with hash or clean URL
+  $(window).on('load', function() {
+    let hash = window.location.hash;
+    
+    // If no hash, check if the path matches a section
+    if (!hash) {
+      const path = window.location.pathname.split('/').pop();
+      if (path && $(`#${path}`).length) {
+        hash = `#${path}`;
+      }
     }
-  }
+
+    if (hash && $(hash).length) {
+      if (hash === '#header') {
+        $('#header').removeClass('header-top');
+        $("section").removeClass('section-show');
+      } else {
+        $('#header').addClass('header-top');
+        $('.nav-menu .active, .mobile-nav .active').removeClass('active');
+        $('.nav-menu, .mobile-nav').find('a[href="' + hash + '"]').parent('li').addClass('active');
+        setTimeout(function() {
+          $("section").removeClass('section-show');
+          $(hash).addClass('section-show');
+        }, 350);
+      }
+    }
+  });
 
   // Mobile Navigation
   if ($('.nav-menu').length) {
@@ -154,12 +212,4 @@
   });
 
 })(jQuery);
-
-/* --- Listen for resume.html cross-tab ping --- */
-const bc = new BroadcastChannel('portfolio_channel');
-bc.onmessage = function(event) {
-  if (event.data === 'ping_index') {
-    bc.postMessage('index_is_open');
-  }
-};
 

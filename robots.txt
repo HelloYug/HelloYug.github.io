@@ -4,8 +4,20 @@ Allow: /
 # Specifically allow major AI indexing agents
 User-agent: ChatGPT-User
 Allow: /
+Allow: /about
+Allow: /skills
+Allow: /education
+Allow: /experience
+Allow: /projects
+Allow: /contacts
 
 User-agent: Google-Extended
 Allow: /
+Allow: /about
+Allow: /skills
+Allow: /education
+Allow: /experience
+Allow: /projects
+Allow: /contacts
 
 Sitemap: https://helloyug.github.io/sitemap.xml
