@@ -20,10 +20,20 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-    // 1. Check for theme in priority: URL param > localStorage > random
+    // 1. Check for theme in priority: URL param > sessionStorage > random
     const urlParams = new URLSearchParams(window.location.search);
     const urlTheme = urlParams.get('theme');
-    const storedTheme = localStorage.getItem('selected-theme');
+    let storedTheme = sessionStorage.getItem('selected-theme');
+
+    const isResumePage = window.location.pathname.includes('resume');
+    const navEntries = performance.getEntriesByType('navigation');
+    const isReload = navEntries.length > 0 && navEntries[0].type === 'reload';
+
+    // If it's a reload and we're not on the resume page, force a new random theme 
+    // to "switch between various themes"
+    if (isReload && !isResumePage) {
+        storedTheme = null;
+    }
 
     let chosenThemeName = urlTheme || storedTheme;
     let chosenTheme;
@@ -33,12 +43,21 @@ document.addEventListener("DOMContentLoaded", function () {
         chosenTheme = themes.find(t => t.name === chosenThemeName);
     } else {
         // 2. Otherwise, generate a completely random theme
-        const totalWeight = themes.reduce((sum, theme) => sum + theme.weight, 0);
+        let availableThemes = themes;
+        
+        // If we are forcing a switch on reload, try to avoid the previously selected theme
+        if (isReload && !isResumePage && sessionStorage.getItem('selected-theme')) {
+            const previousTheme = sessionStorage.getItem('selected-theme');
+            availableThemes = themes.filter(t => t.name !== previousTheme);
+            if (availableThemes.length === 0) availableThemes = themes; // Fallback
+        }
+
+        const totalWeight = availableThemes.reduce((sum, theme) => sum + theme.weight, 0);
         const rand = Math.random() * totalWeight;
         let cumulative = 0;
 
-        chosenTheme = themes[0]; // Default
-        for (const theme of themes) {
+        chosenTheme = availableThemes[0]; // Default
+        for (const theme of availableThemes) {
             cumulative += theme.weight;
             if (rand < cumulative) {
                 chosenTheme = theme;
@@ -48,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // 3. Persist and apply
-    localStorage.setItem('selected-theme', chosenTheme.name);
+    sessionStorage.setItem('selected-theme', chosenTheme.name);
     document.body.className = chosenTheme.name;
 
     // 4. Clean up the URL

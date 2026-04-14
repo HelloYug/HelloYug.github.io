@@ -7,8 +7,23 @@ document.getElementById('view-link-header').href = `YugAgarwal.pdf?v=${timestamp
 document.getElementById('download-link-footer').href = `YugAgarwal.pdf?v=${timestamp}`;
 document.getElementById('view-link-footer').href = `YugAgarwal.pdf?v=${timestamp}`;
 
-// Navigation is handled by standard links with theme propagation in assets/js/randomTheme.js
-
+// Navigation logic for 'Back to Portfolio' buttons
+document.addEventListener('DOMContentLoaded', () => {
+    const backButtons = document.querySelectorAll('.back-button');
+    backButtons.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            // If the window was opened by another page (e.g. Portfolio), close it
+            // This returns the user to the already open portfolio page.
+            if (window.opener && window.opener !== window) {
+                window.close();
+            } else {
+                // If it was accessed directly (no opener), navigate to home in this tab
+                window.location.href = this.href;
+            }
+        });
+    });
+});
 // PDF viewer functionality
 document.addEventListener('DOMContentLoaded', function () {
     // Configuration
