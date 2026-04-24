@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
             // Requirement: "if any page already open, close the resume tab else open home page in the same tab"
-            // We use window.opener as a proxy to check if we were opened from the portfolio page.
+            // We use window.opener as a proxy to check if we were opened from the education-grid page.
             if (window.opener && window.opener !== window && !window.opener.closed) {
                 window.close();
             } else {

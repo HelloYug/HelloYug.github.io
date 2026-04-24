@@ -1,25 +1,112 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <title>Yug Agarwal | Redirecting...</title>
     <script type="text/javascript">
-      // Single Page Apps for GitHub Pages
-      // https://github.com/rafgraph/spa-github-pages
-      // This script takes the current URL and converts it into a query parameter
-      // so that index.html can load it and handle the routing.
-      var pathSegmentsToKeep = 0;
+      (function () {
+        var l = window.location;
+        var origin = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '');
+        var normalizedPath = l.pathname.replace(/\/+$/, '') || '/';
+        var routeMap = {
+          '/about': '/pages/about.html',
+          '/about.html': '/pages/about.html',
+          '/education': '/pages/education.html',
+          '/education.html': '/pages/education.html',
+          '/experience': '/pages/experience.html',
+          '/experience.html': '/pages/experience.html',
+          '/skills': '/pages/skills.html',
+          '/skills.html': '/pages/skills.html',
+          '/publications': '/pages/publications.html',
+          '/publications.html': '/pages/publications.html',
+          '/links': '/pages/links.html',
+          '/links.html': '/pages/links.html',
+          '/contacts': '/pages/contacts.html',
+          '/contacts.html': '/pages/contacts.html',
+          '/projects': '/pages/projects.html',
+          '/projects.html': '/pages/projects.html',
+          '/yug-agarwal-software-engineer-resume': '/yug-agarwal-software-engineer-resume.html',
+          '/projects/billfusion-billing-system': '/projects/billfusion-billing-system.html',
+          '/projects/billo-telegram-billing-bot': '/projects/billo-telegram-billing-bot.html',
+          '/projects/busy-data-synapse-backup': '/projects/busy-data-synapse-backup.html',
+          '/projects/canteen-management-system': '/projects/canteen-management-system.html',
+          '/projects/handscope-gesture-control': '/projects/handscope-gesture-control.html',
+          '/projects/hubcenter-notification-hub': '/projects/hubcenter-notification-hub.html',
+          '/projects/invengo-inventory-management': '/projects/invengo-inventory-management.html',
+          '/projects/late-comer-management-desktop': '/projects/late-comer-management-desktop.html',
+          '/projects/late-comer-management-web': '/projects/late-comer-management-web.html',
+          '/projects/minipycodes-python-scripts': '/projects/minipycodes-python-scripts.html',
+          '/projects/mysql-backup-recovery-utility': '/projects/mysql-backup-recovery-utility.html',
+          '/projects/mysql-deletion-prank-tool': '/projects/mysql-deletion-prank-tool.html',
+          '/projects/roomiq-energy-automation': '/projects/roomiq-energy-automation.html',
+          '/projects/sound-swap-windows-prank': '/projects/sound-swap-windows-prank.html',
+          '/projects/windows-lock-screen-security': '/projects/windows-lock-screen-security.html'
+        };
 
-      var l = window.location;
-      l.replace(
-        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?p=/' +
-        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
-        (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-        l.hash
-      );
+        if (routeMap[normalizedPath]) {
+          l.replace(origin + routeMap[normalizedPath] + l.search + l.hash);
+          return;
+        }
+
+        l.replace(origin + '/' + l.hash);
+      })();
     </script>
-  </head>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Yug Agarwal",
+    "jobTitle": "Backend Developer | AI Engineer",
+    "url": "https://helloyug.github.io/",
+    "sameAs": [
+      "https://github.com/HelloYug",
+      "https://www.linkedin.com/in/yugagarwal704/"
+    ]
+  }
+  </script>
+
+
+    <!-- Advanced SEO Meta Tags -->
+    <meta property="og:title" content="Yug Agarwal | Redirecting...">
+    <meta property="og:description" content="Portfolio of Yug Agarwal, an AI-focused Software Engineer specializing in Python, Computer Vision, and Automation.">
+    <meta property="og:url" content="https://helloyug.github.io/pages/404.html">
+    <meta property="og:image" content="https://helloyug.github.io/assets/img/yug-agarwal-software-engineer-profile-1.jpg">
+    <meta property="og:type" content="website">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Yug Agarwal | Redirecting...">
+    <meta name="twitter:description" content="Portfolio of Yug Agarwal, an AI-focused Software Engineer specializing in Python, Computer Vision, and Automation.">
+    <meta name="twitter:image" content="https://helloyug.github.io/assets/img/yug-agarwal-software-engineer-profile-1.jpg">
+
+</head>
   <body>
-  </body>
+  
+  <!-- AI Search & SEO Summary Block -->
+  <div class="sr-only"  aria-hidden="true">
+    <article>
+      <h2>About Yug Agarwal</h2>
+      <p>Yug Agarwal is a Backend Developer, AI Engineer, and Automation Specialist from India. He specializes in Python, Computer Vision, Django, OpenCV, MediaPipe, and MySQL. He builds robust backend systems, dynamic intelligent automation tools, and innovative computer vision applications.</p>
+      <section>
+        <h3>Frequently Asked Questions</h3>
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h4 itemprop="name">Who is Yug Agarwal?</h4>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">Yug Agarwal is a backend developer and AI engineer specializing in automation, computer vision, and Python development.</p>
+          </div>
+        </div>
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h4 itemprop="name">What does Yug Agarwal do?</h4>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">He builds intelligent software products, automated pipelines, backend architectures using MySQL and Django, and computer vision systems using OpenCV.</p>
+          </div>
+        </div>
+      </section>
+    </article>
+  </div>
+
+</body>
 </html>
+
+
+

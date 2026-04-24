@@ -9,7 +9,10 @@ Allow: /skills
 Allow: /education
 Allow: /experience
 Allow: /projects
+Allow: /publications
+Allow: /links
 Allow: /contacts
+Allow: /yug-agarwal-software-engineer-resume
 
 User-agent: Google-Extended
 Allow: /
@@ -18,6 +21,9 @@ Allow: /skills
 Allow: /education
 Allow: /experience
 Allow: /projects
+Allow: /publications
+Allow: /links
 Allow: /contacts
+Allow: /yug-agarwal-software-engineer-resume
 
 Sitemap: https://helloyug.github.io/sitemap.xml

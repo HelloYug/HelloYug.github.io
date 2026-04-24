@@ -8,6 +8,8 @@
 !(function($) {
   "use strict";
 
+  const isInnerPage = document.body && document.body.dataset.pageLayout === "inner";
+  const hasSectionOverlayNav = $('.nav-menu a[href^="#"]').length > 0;
   // Calculate the base path once to avoid stacking (e.g., /about/skills)
   const SITE_ROOT = window.location.pathname.replace(/index\.html$/, '').replace(/(about|education|experience|Projects|skills|contacts|links)\/?$/, '');
 
@@ -41,6 +43,10 @@
 
   // Nav Menu
   $(document).on('click', '.nav-menu a, .mobile-nav a', function(e) {
+    if (!this.hash) {
+      return;
+    }
+
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
       var hash = this.hash;
       var target = $(hash);
@@ -88,14 +94,26 @@
   });
 
   // Handle popstate for browser back/forward
-  window.addEventListener('popstate', function(e) {
-    let hash = (e.state && e.state.section) ? e.state.section : '#header';
-    // Trigger navigation behavior without adding to history again
-    $(`.nav-menu a[href="${hash}"], .mobile-nav a[href="${hash}"]`).click();
-  });
+  if (!isInnerPage && hasSectionOverlayNav) {
+    window.addEventListener('popstate', function(e) {
+      let hash = (e.state && e.state.section) ? e.state.section : '#header';
+      // Trigger navigation behavior without adding to history again
+      $(`.nav-menu a[href="${hash}"], .mobile-nav a[href="${hash}"]`).click();
+    });
+  }
 
   // Activate/show sections on load with hash or clean URL
   $(window).on('load', function() {
+    if (isInnerPage) {
+      $('#header').addClass('header-top');
+      $('section').addClass('section-show');
+      return;
+    }
+
+    if (!hasSectionOverlayNav) {
+      return;
+    }
+
     let hash = window.location.hash;
     
     // If no hash, check if the path matches a section
@@ -128,7 +146,8 @@
       class: 'mobile-nav d-lg-none'
     });
     $('body').append($mobile_nav);
-    $('body').prepend('<button type="button" class="mobile-nav-toggle d-lg-none"><i class="icofont-navigation-menu"></i></button>');
+    $('#header .container').append('<button type="button" class="mobile-nav-toggle d-lg-none toggle-inner"><i class="icofont-navigation-menu"></i></button>');
+    $('#header').after('<button type="button" class="mobile-nav-toggle d-lg-none toggle-home"><i class="icofont-navigation-menu"></i></button>');
     $('body').append('<div class="mobile-nav-overly"></div>');
 
     $(document).on('click', '.mobile-nav-toggle', function(e) {
@@ -186,16 +205,17 @@
 
   // Portfolio isotope and filter
   $(window).on('load', function() {
-    var portfolioContainer = $('.newalpha-container');
+    var portfolioContainer = $('.projects-container');
     if (portfolioContainer.length) {
       portfolioContainer.imagesLoaded(function() {
+        var layoutMode = portfolioContainer.data('layout-mode') || 'masonry';
         var portfolioIsotope = portfolioContainer.isotope({
-          itemSelector: '.newalpha-item',
-          layoutMode: 'masonry'
+          itemSelector: '.projects-item',
+          layoutMode: layoutMode
         });
 
-        $('#newalpha-flters li').on('click', function() {
-          $("#newalpha-flters li").removeClass('filter-active');
+        $('#projects-filters li').on('click', function() {
+          $("#projects-filters li").removeClass('filter-active');
           $(this).addClass('filter-active');
 
           portfolioIsotope.isotope({

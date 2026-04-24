@@ -72,8 +72,14 @@ document.addEventListener("DOMContentLoaded", function () {
     let currentPath = window.location.pathname;
     let needsClean = false;
 
+    const pagesMatch = currentPath.match(/^\/pages\/([^\/]+?)(?:\.html)?$/);
+
+    if (pagesMatch) {
+        currentPath = '/' + pagesMatch[1];
+        needsClean = true;
+    }
     // Remove index.html for "domain only" requirement on Home
-    if (currentPath.endsWith('/index.html')) {
+    else if (currentPath.endsWith('/index.html')) {
         currentPath = currentPath.replace('/index.html', '/');
         needsClean = true;
     } 
