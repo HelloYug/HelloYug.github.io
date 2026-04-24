@@ -1,15 +1,15 @@
-document.addEventListener("DOMContentLoaded", function () {
+(function () {
   // --- CONFIGURATION ---
   const ENABLE_RANDOM_PIC = true; // Set to false to always show the default picture
-  const DEFAULT_PIC = "yug-agarwal-software-engineer-profile-1.jpg"; // Fallback picture if randomization is off
+  const DEFAULT_PIC = "yug-agarwal-software-engineer-profile-1.webp"; // Fallback picture if randomization is off
 
   // Array of profiles makes it much easier to manage extensions and weights
   const profiles = [
-    { file: "yug-agarwal-software-engineer-profile-1.jpg", weight: 1 },
-    { file: "yug-agarwal-software-engineer-profile-2.jpg", weight: 1 },
-    { file: "yug-agarwal-software-engineer-profile-3.jpg", weight: 1 },
-    { file: "yug-agarwal-software-engineer-profile-4.jpg", weight: 0 }, // 0% chance
-    { file: "yug-agarwal-software-engineer-profile-5.png", weight: 2 }
+    { file: "yug-agarwal-software-engineer-profile-1.webp", weight: 1 },
+    { file: "yug-agarwal-software-engineer-profile-2.webp", weight: 1 },
+    { file: "yug-agarwal-software-engineer-profile-3.webp", weight: 1 },
+    { file: "yug-agarwal-software-engineer-profile-4.webp", weight: 0 }, // 0% chance
+    { file: "yug-agarwal-software-engineer-profile-5.webp", weight: 2 }
   ];
 
   const img = document.getElementById("profile-pic");
@@ -37,6 +37,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Set the image source (browser handles URL encoding automatically natively)
+  // Set the image source
   img.src = `assets/img/${chosenProfile.file}`;
-});
+})();
