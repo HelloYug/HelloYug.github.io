@@ -3,136 +3,136 @@
   <!-- Main Portfolio Page -->
   <url>
     <loc>https://helloyug.github.io/</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <!-- Main Portfolio Sections (Virtual Paths) -->
   <url>
     <loc>https://helloyug.github.io/about</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://helloyug.github.io/skills</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://helloyug.github.io/education</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://helloyug.github.io/experience</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://helloyug.github.io/projects</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <!-- Resume Page -->
   <url>
     <loc>https://helloyug.github.io/yug-agarwal-software-engineer-resume</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <!-- Project Pages -->
   <url>
     <loc>https://helloyug.github.io/projects/busy-data-synapse-backup</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://helloyug.github.io/projects/windows-lock-screen-security</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://helloyug.github.io/projects/billfusion-billing-system</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://helloyug.github.io/projects/billo-telegram-billing-bot</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://helloyug.github.io/projects/canteen-management-system</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://helloyug.github.io/projects/handscope-gesture-control</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://helloyug.github.io/projects/invengo-inventory-management</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://helloyug.github.io/projects/late-comer-management-desktop</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://helloyug.github.io/projects/late-comer-management-web</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://helloyug.github.io/projects/minipycodes-python-scripts</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://helloyug.github.io/projects/roomiq-energy-automation</loc>
-    <lastmod>2026-04-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://helloyug.github.io/projects/tech-ingenious-flask-blog</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://helloyug.github.io/projects/sound-swap-windows-prank</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://helloyug.github.io/projects/mysql-backup-recovery-utility</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://helloyug.github.io/projects/mysql-deletion-prank-tool</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://helloyug.github.io/projects/hubcenter-notification-hub</loc>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

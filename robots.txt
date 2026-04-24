@@ -1,23 +1,29 @@
 User-agent: *
 Allow: /
+Disallow: /assets/vendor/
+Disallow: /assets/CustomCursors/
 
-# Specifically allow major AI indexing agents
+# Optimization for Search Engines
+Sitemap: https://helloyug.github.io/sitemap.xml
+
+# Specific allowance for AI indexing agents to boost AI search visibility
 User-agent: ChatGPT-User
 Allow: /
-Allow: /about
-Allow: /skills
-Allow: /education
-Allow: /experience
-Allow: /projects
-Allow: /contacts
 
 User-agent: Google-Extended
 Allow: /
-Allow: /about
-Allow: /skills
-Allow: /education
-Allow: /experience
-Allow: /projects
-Allow: /contacts
 
-Sitemap: https://helloyug.github.io/sitemap.xml
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /

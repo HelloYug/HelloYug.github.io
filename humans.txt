@@ -1,16 +1,18 @@
 /* TEAM */
     Developer: Yug Agarwal
+    Role: Backend Developer & AI Engineer
     Contact: yugagarwal704@gmail.com
     GitHub: https://github.com/HelloYug
     LinkedIn: https://www.linkedin.com/in/yugagarwal704/
     Location: Ghaziabad, Delhi-NCR, India
 
 /* THANKS */
-    Open Source Community, BootstrapMade, GSAP, Google Fonts
+    Open Source Community, BootstrapMade, GSAP, Google Fonts, MediaPipe, OpenCV
 
 /* SITE */
-    Last update: 2026/04/14
+    Last update: 2026/04/25
     Language: English
     Doctype: HTML5
     IDE: VS Code
-    Technologies: HTML5, CSS3, JavaScript, UI/UX Design, JSON-LD, SEO Optimization
+    Technologies: Python, Django, FastAPI, OpenCV, MediaPipe, MySQL, HTML5, CSS3, JavaScript, JSON-LD, Technical SEO
+    Optimization: Extreme SEO & AI Discoverability Enabled
