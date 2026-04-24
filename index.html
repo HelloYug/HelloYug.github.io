@@ -240,16 +240,16 @@
     rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'">
-  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet" media="print" onload="this.media='all'">
 
   <!-- Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-  <link href="assets/CustomCursors/cursor.css" rel="stylesheet">
+  <link href="assets/CustomCursors/cursor.css" rel="stylesheet" media="print" onload="this.media='all'">
 
 </head>
 
@@ -309,7 +309,7 @@
     </article>
   </div>
   <!-- Dynamic Theme Randomizer -->
-  <script src="assets/js/randomTheme.js"></script>
+  <script src="assets/js/randomTheme.js" defer></script>
   <!-- ======= Header ======= -->
   <header id="header" class="">
 
@@ -1550,6 +1550,17 @@
 
   <!-- Custom Cursor JS -->
   <script src="assets/CustomCursors/cursor.js" defer></script>
+
+  <!-- Service Worker Registration for Caching -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('assets/js/sw.js')
+          .then(reg => console.log('Service Worker registered', reg))
+          .catch(err => console.log('Service Worker registration failed', err));
+      });
+    }
+  </script>
 
 </body>
 
