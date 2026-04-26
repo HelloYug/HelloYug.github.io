@@ -6,7 +6,9 @@
 (function () {
   "use strict";
 
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const touchMotionQuery = window.matchMedia("(hover: none), (pointer: coarse), (max-width: 1024px)");
+  const reduceMotion = reduceMotionQuery.matches;
   const revealSelector = [
     "#header .container > *",
     "section .section-title",
@@ -46,6 +48,21 @@
 
   let revealObserver = null;
   let normalizeTimer = null;
+
+  function isTouchMotion() {
+    return touchMotionQuery.matches;
+  }
+
+  function getRevealMotionProfile() {
+    return isTouchMotion()
+      ? { delayStep: 45, maxStaggerItems: 4 }
+      : { delayStep: 70, maxStaggerItems: 7 };
+  }
+
+  function syncMotionContext() {
+    document.body.classList.toggle("ux-touch-motion", isTouchMotion());
+    document.body.classList.toggle("ux-reduced-motion", reduceMotionQuery.matches);
+  }
 
   function revealSectionElements(section) {
     if (!(section instanceof HTMLElement)) {
@@ -87,6 +104,7 @@
 
   function applyRevealDelays(nodes) {
     const groupMap = new Map();
+    const motionProfile = getRevealMotionProfile();
 
     nodes.forEach((node) => {
       const group =
@@ -97,7 +115,10 @@
       const groupKey = group || document.body;
       const currentOrder = groupMap.get(groupKey) || 0;
       groupMap.set(groupKey, currentOrder + 1);
-      node.style.setProperty("--ux-delay", `${Math.min(currentOrder, 7) * 70}ms`);
+      node.style.setProperty(
+        "--ux-delay",
+        `${Math.min(currentOrder, motionProfile.maxStaggerItems) * motionProfile.delayStep}ms`
+      );
     });
   }
 
@@ -289,6 +310,8 @@
   }
 
   function init() {
+    syncMotionContext();
+
     if ("IntersectionObserver" in window && !reduceMotion) {
       revealObserver = new IntersectionObserver(
         (entries) => {
@@ -300,8 +323,8 @@
           });
         },
         {
-          threshold: 0.14,
-          rootMargin: "0px 0px -8% 0px"
+          threshold: isTouchMotion() ? 0.1 : 0.14,
+          rootMargin: isTouchMotion() ? "0px 0px -3% 0px" : "0px 0px -8% 0px"
         }
       );
     }

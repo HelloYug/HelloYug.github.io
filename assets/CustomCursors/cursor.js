@@ -3,7 +3,7 @@
 /* ---------------------------------------------------- */
 document.addEventListener("DOMContentLoaded", () => {
     // Check if device is a touch device and exit
-    if (window.matchMedia("(hover: none) and (pointer: coarse)").matches) {
+    if (window.matchMedia("(hover: none) and (pointer: coarse), (max-width: 768px), (prefers-reduced-motion: reduce)").matches) {
         return;
     }
 

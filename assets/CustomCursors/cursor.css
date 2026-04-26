@@ -126,3 +126,16 @@ button,
         cursor: auto !important;
     }
 }
+
+@media (prefers-reduced-motion: reduce) {
+    .custom-cursor {
+        display: none !important;
+    }
+
+    body,
+    a,
+    button,
+    .nav-link {
+        cursor: auto !important;
+    }
+}

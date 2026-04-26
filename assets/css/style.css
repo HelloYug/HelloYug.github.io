@@ -3228,3 +3228,276 @@ body[data-page="education"] .education-grid .education-wrap img {
       float: none !important;
     }
 }
+
+/* ========================================================================= */
+/* RESPONSIVE MOTION: TOUCH DEVICES */
+/* ========================================================================= */
+@media (max-width: 1024px), (hover: none) and (pointer: coarse) {
+  a,
+  button,
+  .btn,
+  .btn-theme,
+  .view-letter,
+  .view-paper,
+  .mobile-nav-toggle,
+  .nav-menu a,
+  .mobile-nav a,
+  .social-links a,
+  #projects-filters li,
+  .education-grid .education-wrap .education-links a,
+  .projects-grid .projects-wrap .projects-links a {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .ux-reveal {
+    transform: translate3d(0, 16px, 0) scale(0.995);
+    filter: blur(3px);
+    transition-duration: 0.58s;
+  }
+
+  .ui-ripple {
+    opacity: 0.55;
+    animation-duration: 0.48s;
+  }
+
+  .mobile-nav {
+    transform: translate3d(0, -10px, 0) scale(0.985);
+    transition:
+      opacity 0.24s var(--ui-ease),
+      transform 0.24s var(--ui-ease),
+      visibility 0.24s var(--ui-ease);
+    will-change: opacity, transform;
+  }
+
+  .mobile-nav-active .mobile-nav {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  .mobile-nav-overly {
+    opacity: 0;
+    transition: opacity 0.24s var(--ui-ease);
+  }
+
+  .mobile-nav-active .mobile-nav-overly {
+    opacity: 1;
+  }
+
+  #header.header-top .container {
+    box-sizing: border-box;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    text-align: left !important;
+    width: calc(100% - 28px) !important;
+    max-width: calc(100% - 28px) !important;
+  }
+
+  #header.header-top h1 {
+    flex: 1 1 auto;
+    min-width: 0;
+    margin-right: 12px;
+    text-align: left;
+  }
+
+  #header.header-top .toggle-inner {
+    flex: 0 0 auto;
+    margin-left: 0;
+  }
+
+  .education-grid .education-wrap::before,
+  .education-grid .education-wrap:hover::before {
+    inset: 0;
+    opacity: 1;
+    background: linear-gradient(180deg, hsla(var(--bg-h), 30%, 6%, 0.1), hsla(var(--bg-h), 28%, 7%, 0.72));
+  }
+
+  .education-grid .education-wrap .education-info,
+  .education-grid .education-wrap:hover .education-info {
+    opacity: 1;
+  }
+
+  .education-grid .education-wrap .education-info::before,
+  .education-grid .education-wrap:hover .education-info::before {
+    top: 15px;
+    left: 15px;
+    opacity: 0.8;
+  }
+
+  .education-grid .education-wrap .education-info::after,
+  .education-grid .education-wrap:hover .education-info::after {
+    right: 15px;
+    bottom: 15px;
+    opacity: 0.8;
+  }
+
+  .education-grid .education-wrap img,
+  .education-grid .education-wrap:hover img {
+    transform: none;
+    opacity: 0.42;
+  }
+
+  .projects-grid .projects-info,
+  .projects-grid .projects-wrap:hover .projects-info {
+    opacity: 1;
+    background: linear-gradient(to top, hsla(var(--bg-h), 30%, 5%, 0.72), hsla(var(--bg-h), 30%, 5%, 0.08));
+  }
+
+  .projects-grid .project-card:hover,
+  .projects-grid .projects-wrap:hover,
+  .education-grid .education-wrap:hover,
+  .interests .icon-box:hover,
+  .services .icon-box:hover,
+  .contact .info-box:hover,
+  .edu-card-horizontal:hover,
+  .edu-card-vertical:hover,
+  .publication-card:hover,
+  .skill-category:hover,
+  .contact-form:hover {
+    transform: none;
+    border-color: var(--ui-border-soft);
+    box-shadow: var(--ui-shadow-sm);
+  }
+
+  .projects-grid .projects-wrap:hover img {
+    transform: none !important;
+  }
+
+  #header .social-links a:hover,
+  #about-social-wrapper .social-links a:hover,
+  .contact .info-box .social-links a:hover,
+  .view-letter:hover,
+  .view-paper:hover,
+  .btn-theme:hover,
+  .projects-grid .projects-links a:hover,
+  .education-grid .education-links a:hover,
+  #skills .icon-box>div>div:hover {
+    transform: none;
+  }
+
+  .services .icon-box:hover .icon {
+    transform: none;
+  }
+
+  .mobile-nav-toggle:active,
+  .nav-menu a:active,
+  .mobile-nav a:active,
+  #header .social-links a:active,
+  #about-social-wrapper .social-links a:active,
+  .contact .info-box .social-links a:active,
+  .view-letter:active,
+  .view-paper:active,
+  .btn-theme:active,
+  .projects-grid .projects-links a:active,
+  .education-grid .education-links a:active {
+    transform: scale(0.97);
+    filter: brightness(1.08);
+  }
+
+  .projects-grid .project-card:active,
+  .interests .icon-box:active,
+  .services .icon-box:active,
+  .contact .info-box:active,
+  .edu-card-horizontal:active,
+  .edu-card-vertical:active,
+  .publication-card:active,
+  .skill-category:active {
+    transform: translateY(-2px);
+    box-shadow: var(--ui-shadow-md);
+  }
+}
+
+@media (max-width: 768px) {
+  .ux-reveal {
+    transform: translate3d(0, 12px, 0);
+    filter: blur(2px);
+    transition-duration: 0.5s;
+  }
+
+  .education-grid .education-wrap .education-info {
+    padding: 16px;
+  }
+
+  .education-grid .education-wrap .education-info h4 {
+    font-size: 0.98rem;
+    padding: 0 18px;
+  }
+
+  .projects-grid .projects-links a,
+  .education-grid .education-links a {
+    width: 50px;
+    height: 50px;
+  }
+
+  #projects-filters {
+    width: 100%;
+    border-radius: 28px;
+  }
+
+  #projects-filters li {
+    flex: 1 1 calc(50% - 8px);
+    padding: 10px 8px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  #header.header-top .container {
+    gap: 10px;
+    padding: 12px 14px;
+    border-radius: 22px;
+  }
+
+  #header.header-top h1 {
+    font-size: clamp(1.35rem, 8vw, 1.9rem);
+  }
+
+  .mobile-nav-toggle {
+    width: 50px;
+    height: 50px;
+    border-radius: 17px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html::before,
+  html::after {
+    animation: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+
+  body::after,
+  body>#header,
+  body>#main {
+    animation: none !important;
+  }
+
+  .ux-reveal,
+  .ux-reveal.ux-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+
+  .ui-ripple {
+    display: none !important;
+    animation: none !important;
+  }
+}
