@@ -10,33 +10,56 @@
     
     <!-- Prevents search engines from indexing the redirect page itself -->
     <meta name="robots" content="noindex">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FLHWBHE0DZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-FLHWBHE0DZ');
+    </script>
     
-    <!-- Instant JavaScript Redirect -->
+    <!-- JavaScript Redirect with UTM -->
     <script>
         (function() {
             var newDomain = "https://yugagarwal.dev";
             
             // Extract all URL parts
             var path = window.location.pathname;
-            var search = window.location.search;
-            var hash = window.location.hash;
             
-            // Construct exact equivalent URL
-            var newUrl = newDomain + path + search + hash;
+            // Use URL object to cleanly manage search parameters
+            var urlObj = new URL(newDomain + path);
+            var currentParams = new URLSearchParams(window.location.search);
             
-            // location.replace() is critical: it prevents the redirect page 
-            // from being saved in browser history, keeping the 'Back' button functional.
-            window.location.replace(newUrl);
+            // Copy any existing parameters from the old URL
+            currentParams.forEach(function(value, key) {
+                urlObj.searchParams.append(key, value);
+            });
+            
+            // Add UTM parameters to track legacy GitHub Pages traffic
+            urlObj.searchParams.set('utm_source', 'github_pages');
+            urlObj.searchParams.set('utm_medium', 'redirect');
+            urlObj.searchParams.set('utm_campaign', 'legacy_migration');
+            
+            // Preserve hash
+            urlObj.hash = window.location.hash;
+            
+            // Wait slightly so the GA tag has time to fire, or just redirect
+            // Since we have UTMs, tracking will happen on the new site as well.
+            setTimeout(function() {
+                window.location.replace(urlObj.href);
+            }, 100); // 100ms delay to allow GA to initialize/send
         })();
     </script>
 
     <!-- Meta refresh fallback for clients with JavaScript disabled -->
-    <!-- Note: Fallback routes to homepage as it cannot dynamically read URL paths -->
     <noscript>
-        <meta http-equiv="refresh" content="0; url=https://yugagarwal.dev/">
+        <meta http-equiv="refresh" content="0; url=https://yugagarwal.dev/?utm_source=github_pages&utm_medium=redirect&utm_campaign=legacy_migration">
     </noscript>
 </head>
 <body>
-    <p>We have moved! Redirecting to <a href="https://yugagarwal.dev/">yugagarwal.dev</a>...</p>
+    <p>We have moved! Redirecting to <a href="https://yugagarwal.dev/?utm_source=github_pages&utm_medium=redirect&utm_campaign=legacy_migration">yugagarwal.dev</a>...</p>
 </body>
 </html>
